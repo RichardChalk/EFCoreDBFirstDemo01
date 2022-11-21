@@ -1,4 +1,9 @@
-﻿// Step 1
+﻿using EFCoreDBFirstDemo01.Models;
+using Microsoft.EntityFrameworkCore;
+
+// https://entityframeworkcore.com/approach-code-first
+
+// Step 1
 // Installera Microsoft.EntityFrameworkCore.SqlServer
 // Installera Microsoft.EntityFrameworkCore.Tools
 
@@ -11,14 +16,31 @@
 // Step 4
 // Installera ett sista nuget paket - Microsoft.EntityFrameworkCore.Design
 
-using EFCoreDBFirstDemo01.Models;
-using Microsoft.EntityFrameworkCore;
+// Step 5
+// Nu kan vi köra denna command i nuget consolen
+// Add-Migration RichardsInitialMigration
 
-using (var myContext = new ApplicationContext())
+// Step 6
+// Nu kan vi köra denna command i nuget consolen
+// Update-Database
+
+// Step 7
+// Nu kan vi loop igenom våra order o Orders tabellen
+
+
+public class Program
 {
-    foreach (var order in myContext.Orders.OrderBy(o => o.OrderID))
+    private static void Main(string[] args)
     {
-        Console.WriteLine($"{order.OrderID}: {order.OrderDetails}");
+        using (var myContext = new ApplicationContext())
+        {
+            foreach (var order in myContext.Orders.OrderBy(o => o.OrderID))
+            {
+                Console.WriteLine($"{order.OrderID}: {order.CustomerName}");
+            }
+        }
     }
 }
+
+
 
