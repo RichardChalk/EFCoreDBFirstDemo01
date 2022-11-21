@@ -1,5 +1,6 @@
 ﻿using EFCoreDBFirstDemo01.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 // https://entityframeworkcore.com/approach-code-first
 
@@ -27,12 +28,30 @@ using Microsoft.EntityFrameworkCore;
 // Step 7
 // Nu kan vi loop igenom våra order o Orders tabellen
 
+// Step 8
+// Installera Microsoft.Extensions.Configuration nuget paket
+// Installera Microsoft.Extensions.Configuration.json nuget paket
+
+// Step 9
+// (Svårare) Lägg till appsettings.json (glöm inte Property "Copy if newer!!")
+
+
+
 
 public class Program
 {
     private static void Main(string[] args)
     {
-        using (var myContext = new ApplicationContext())
+        var builder = new ConfigurationBuilder().AddJsonFile($"appsettings.json", true, true);
+        var config = builder.Build();
+
+        // Hämta connection string från appsettings.json
+        var connectionString = config.GetConnectionString("DefaultConnection");
+
+        var options = new DbContextOptionsBuilder<ApplicationContext>();
+        options.UseSqlServer(connectionString);
+
+        using (var myContext = new ApplicationContext(options.Options))
         {
             foreach (var order in myContext.Orders.OrderBy(o => o.OrderID))
             {
