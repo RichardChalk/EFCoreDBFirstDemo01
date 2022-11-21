@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EFCoreDBFirstDemo01.Models
 {
-    public class MyContext : DbContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
