@@ -1,4 +1,2 @@
-﻿// Step 1
-// Install Microsoft.EntityFrameworkCore.SqlServer
-// Install Microsoft.EntityFrameworkCore.Tools
-
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
