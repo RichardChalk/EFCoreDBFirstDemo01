@@ -35,8 +35,8 @@ using Microsoft.Extensions.Configuration;
 // Step 9
 // (Svårare) Lägg till appsettings.json (glöm inte Property "Copy if newer!!")
 
-
-
+// Step 10
+// Loopar igenom något i din klass och visa den i console fönstret
 
 public class Program
 {
