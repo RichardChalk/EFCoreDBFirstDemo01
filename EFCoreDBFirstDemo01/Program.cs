@@ -36,7 +36,11 @@ using Microsoft.Extensions.Configuration;
 // (Svårare) Lägg till appsettings.json (glöm inte Property "Copy if newer!!")
 
 // Step 10
+// Lägg till lite data i din databas (gör det direkt i MSSM)
+
+// Step 11
 // Loopar igenom något i din klass och visa den i console fönstret
+
 
 public class Program
 {
